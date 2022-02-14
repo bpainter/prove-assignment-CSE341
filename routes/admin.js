@@ -1,17 +1,19 @@
 const path = require('path');
 
 const express = require('express');
- 
-// Require the products controller file
-const productsController = require('../controllers/products');
+
+const shopController = require('../controllers/shop');
 
 const router = express.Router();
 
-// /admin/add-product => GET
-router.get('/add-product', productsController.getAddProduct);
+router.get('/', shopController.getIndex);
 
-// /admin/add-product => POST
-router.post('/add-product', productsController.postAddProduct);
+router.get('/products', shopController.getProducts);
+
+router.get('/cart', shopController.getCart);
+
+router.get('/orders', shopController.getOrders);
+
+router.get('/checkout', shopController.getCheckout);
 
 module.exports = router;
-
