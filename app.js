@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const config = require('./config');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
@@ -34,7 +35,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://cse341-db-admin:HLBy2hdhXsaSoDNm@cs341-bp.93yuc.mongodb.net/shop?retryWrites=true&w=majority'
+    `mongodb+srv://${config.mongodbAdmin}:${config.mongodbPassword}@cs341-bp.93yuc.mongodb.net/shop?retryWrites=true&w=majority`
   )
   .then(result => {
     User.findOne().then(user => {
