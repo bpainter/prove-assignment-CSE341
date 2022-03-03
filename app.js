@@ -11,7 +11,6 @@ const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
 
-const config = require('./config');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
